@@ -136,7 +136,8 @@ def add_direct(request):
     elif models.MessageThread.objects.filter(title=(friendUser.username + request.user.username)).exists():
         thread = models.MessageThread.objects.get(title=(friendUser.username + request.user.username))
     else:
-        thread = models.MessageThread(title=threadName, psk=threadName, admin=request.user.username, friend1 = friendUser.username, is_direct=True)
+        thread = models.MessageThread(title=threadName, psk=threadName, admin=request.user.username, \
+        friend1 = friendUser.username, is_direct=True)
         #thread = models.MessageThread(title=threadName, psk=threadName)
         thread.save()
 
